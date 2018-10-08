@@ -1,14 +1,15 @@
-## Welcome to the mean stack
+## News Aggregator Demo
 
-The mean stack is intended to provide a simple and fun starting point for cloud native fullstack javascript applications.
+This is a simple news aggregator built on the MEAN stack and powered with Google News
 
 ### Installation 
+
 ``` 
-cp .env-example .env
 yarn install
 yarn build
 yarn start (for development)
 yarn serve (for production)
+
 ```
 
 # AngularMaterial

@@ -64,7 +64,7 @@ app.use('/api/', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new httpError(404)
+  const err = new httpError(404);
   return next(err);
 });
 
