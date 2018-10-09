@@ -1,47 +1,46 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
-import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
+
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
-import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
-import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TableListComponent } from './table-list/table-list.component';
+import { TypographyComponent } from './typography/typography.component';
+import { IconsComponent } from './icons/icons.component';
+import { MapsComponent } from './maps/maps.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { UpgradeComponent } from './upgrade/upgrade.component';
+import {
+  AgmCoreModule
+} from '@agm/core';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
+  imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
+    ComponentsModule,
+    RouterModule,
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+    })
+  ],
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent,
+    AdminLayoutComponent,
+
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule,
-    SharedModule,
-    AuthModule,
-    AdminModule,
-    AppRoutingModule,
-  ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthHeaderInterceptor,
-    multi: true,
-  }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: CatchErrorInterceptor,
-    multi: true,
-  }],
-  entryComponents: [],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
