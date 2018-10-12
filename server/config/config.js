@@ -10,6 +10,7 @@ const envVarsSchema = Joi.object({
     .default('development'),
   PORT: Joi.number()
     .default(4040),
+  CLIENT_ID: Joi.string().required(),
   WEB_CONCURRENCY: Joi.number()
     .description('Number of thread running the app')
     .default(1),
@@ -36,6 +37,7 @@ if (error) {
 const config = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
+  client_id: envVars.CLIENT_ID,
   webConcurrency: envVars.WEB_CONCURRENCY,
   mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,

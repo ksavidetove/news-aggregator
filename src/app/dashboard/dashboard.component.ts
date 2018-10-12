@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {NewsService} from '../services/news.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +9,11 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-  startAnimationForLineChart(chart){
+  constructor(private newsService: NewsService) {
+    newsService.getHeadline('bla').subscribe(results => console.log(results));
+  }
+
+  startAnimationForLineChart(chart) {
       let seq: any, delays: any, durations: any;
       seq = 0;
       delays = 80;
@@ -26,7 +30,7 @@ export class DashboardComponent implements OnInit {
               easing: Chartist.Svg.Easing.easeOutQuint
             }
           });
-        } else if(data.type === 'point') {
+        } else if (data.type === 'point') {
               seq++;
               data.element.animate({
                 opacity: {
@@ -49,7 +53,7 @@ export class DashboardComponent implements OnInit {
       delays2 = 80;
       durations2 = 500;
       chart.on('draw', function(data) {
-        if(data.type === 'bar'){
+        if (data.type === 'bar'){
             seq2++;
             data.element.animate({
               opacity: {
