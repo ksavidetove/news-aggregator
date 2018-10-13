@@ -10,7 +10,7 @@ export class NewsService {
   getHeadline(query: any): Observable<any> {
     const options = {
       headers: {
-        'Authorization': `Bearer ${environment.client_id}`
+        'Authorization': `Bearer ${environment.clientId}`
       }
     };
 
