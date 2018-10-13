@@ -1,0 +1,14 @@
+<div class="card">
+  <img class="card-img-top" *ngIf="article.urlToImage" src="{{article.urlToImage}}" alt="Card image cap">
+  <img class="card-img-top" *ngIf="!article.urlToImage" src="../../../assets/img/default.png" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">{{article.title}}</h4>
+    <p class="card-text">{{article.description}}</p>
+    <p class="card-text"><small class="text-muted">{{article.author}} From <cite title="From">{{article.source.name}}</cite></small></p>
+  </div>
+  <!--<footer class="blockquote-footer text-right">-->
+    <!--<small class="text-muted">-->
+      <!--{{article.author}} <cite title="From">{{article.source.name}}</cite>-->
+    <!--</small>-->
+  <!--</footer>-->
+</div>
