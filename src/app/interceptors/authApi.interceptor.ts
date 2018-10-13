@@ -11,7 +11,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     const clonedRequest = req.clone({
       headers: req
         .headers
-        .set('Authorization', `Bearer ${environment.client_id}`)
+        .set('Authorization', `Bearer ${environment.clientId}`)
     });
 
     // Pass the cloned request instead of the original request to the next handle
